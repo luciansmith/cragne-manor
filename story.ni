@@ -56,11 +56,16 @@ lp-ghost4 is a scene.  lp-ghost4 begins when lp-ghost3 ends.  lp-ghost4 ends whe
 lp-ghost5 is a scene.  lp-ghost5 begins when lp-ghost4 ends.
 
 
-Emmett is a man.  "A faint chill is in the air."  Understand "ghost", "chill", "faint chill", "Josey", "spark", "chalk", "snap", "ice cracking", "hovering" as Emmett.  The description of Emmett is "A chill emanates from behind you, fading as you turn."   The printed name of Emmett is "faint chill".   Emmett is improper-named.
+Emmett is a man.  "A faint chill is in the air."  Emmett is privately-named.  The description of Emmett is "A chill emanates from behind you, fading as you turn."   The printed name of Emmett is "faint chill".   Emmett is improper-named.
+
+[NOTE:  if disambiguation is becoming expensive, comment out the 'when x is happening' bits of the following code:]
+Understand "chill", "faint chill" as Emmett while lp-ghost1 is happening.
+Understand "spark", "chalk", "snap", "ice cracking", "hovering", "chill" as Emmett while lp-ghost2 is happening.
+Understand "ghost", "chill", "spark", "chalk", "snap", "hovering", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost3 is happening.
 
 
 When lp-ghost1 begins:
-	say "A faint chill comes over you."
+	say "A faint chill comes over you.";
 
 When lp-ghost2 begins:
 	say "A snap like ice cracking behind you makes you jump.";
@@ -69,10 +74,10 @@ When lp-ghost2 begins:
 	now the initial appearance of Emmett is "A chalky spark hovers in the air, emanating cold."
 
 When lp-ghost3 begins:
-	say "A snap like ice cracking behind you makes you jump.";
-	now the description of Emmett is "Something like a spark of chalk hovers in the air behind you.  As you watch, it fades, only to reappear to your right in a wash of cold.";
-	now the printed name of Emmett is "hovering spark";
-	now the initial appearance of Emmett is "A chalky spark hovers in the air, emanating cold."
+	say "With another snap, the air seems to shift, and the faint outline of a man coalesces around the spark.";
+	now the description of Emmett is "The outline of an African-American man in a suit and tie fades in and out of view around a hovering spark.";
+	now the printed name of Emmett is "well-dressed ghost";
+	now the initial appearance of Emmett is "The outline of a well-dressed man moves slowly around you."
 
 Every turn during lp-ghost1:
 	if the holder of Emmett is not the holder of the player:
@@ -87,6 +92,13 @@ Every turn during lp-ghost3:
 		move Emmett to the holder of the player;
 
 Every turn during lp-ghost4:
+	if the location of Emmett is not SPO8:
+		let the right direction be the best route from the location of Emmett to SPO8, using even locked doors;
+		if the right direction is not nothing:
+			let the right destination be the room the right direction from the location of Emmett;
+			if the location of Emmett is the location of the player:
+				say "With a scowl and a sense of purpose, the well-dressed man moves [the right direction] out of sight.";
+			move Emmett to the right destination;
 	if the holder of Emmett is not the holder of the player:
 		move Emmett to the holder of the player;
 
@@ -105,6 +117,9 @@ Instead of touching Emmett during lp-ghost1:
 Instead of touching Emmett during lp-ghost2:
 	say "As your hand approaches the spark, you feel the warmth draining from your fingertips.  You jerk your hand back just as frost begins to form on your palm."	
 
+Instead of touching Emmett during lp-ghost3:
+	say "A reproachful look from the man stops you."	
+
 Instead of saying hello to Emmett during lp-ghost1:
 	say "There is no reply."
 
@@ -115,14 +130,25 @@ After reading a lp-ghost-unread library book during lp-ghost2:
 	now the noun is lp-ghost-read;
 	say "As you finish reading the passage, the spark moves through the book with an eerie hum, leaving frost behind on the library insignia."
 
-Instead of showing or giving a lp-ghost-unread library book to Emmett during lp-ghost2:
-	now the noun is lp-ghost-read;
-	now the noun is in the holder of the player;
-	say "You hold the book out to the spark, which hesitates, then plunges inside the pages.  The book freezes, and tumbles from your hands.  Once dropped, the frost receeds from the cover, remaining only in the library's insignia."
-
 After reading a lp-ghost-unread library book during lp-ghost3:
 	now the noun is lp-ghost-read;
-	say "You feel like you're being watched."
+	say "As you finish reading the passage, you realize that the well-dressed man has been reading over your shoulder.  He nods thoughtfully, placing his hand on the cover, leaving frost behind on the library insignia."
+
+Instead of showing or giving a library book to Emmett during lp-ghost2:
+	if the noun is lp-ghost-unread:
+		now the noun is lp-ghost-read;
+		now the noun is in the holder of the player;
+		say "You hold the book out to the spark, which hesitates, then plunges inside the pages.  The book freezes, and tumbles from your hands.  Once dropped, the spark re-emerges, and frost receeds from the cover, remaining only in the library's insignia.";
+	else:
+		say "The spark moves as if vaguely interested, but you provoke no other reaction."
+
+Instead of showing or giving a library book to Emmett during lp-ghost3:
+	if the noun is lp-ghost-unread:
+		now the noun is lp-ghost-read;
+		now the noun is in the holder of the player;
+		say "You hold the book out to the man, who nods and approaches, drifting slowly towards you.  He reaches out a hand and touches the book, which becomes encrusted with frost as the man fades from sight.  Finally, the man reappears and nods to you as the frost sublimates away, leaving only traces in the library insignia.";
+	else:
+		say "He looks at the book and nods, but makes no other move."
 
 After reading a lp-ghost-unread library book during lp-ghost4:
 	now the noun is lp-ghost-read;
