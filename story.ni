@@ -19,7 +19,8 @@ SPO4 is a room in SPO. "W; NE". SPO4 is east of SPO1.
 SPO5 is a room in SPO. "NW; S; E". SPO5 is west of SPO1.
 SPO6 is a room in SPO. "SE". SPO6 is northwest of SPO5.
 SPO7 is a room in SPO. "SW". SPO7 is northeast of SPO4.
-SPO9 is a room in SPO. "N". SPO9 is south of SPO5.
+SPO9 is a room in SPO. "N; S". SPO9 is south of SPO5.
+SPO10 is a room in SPO. "N". SPO10 is south of SPO9.
 
 book1 is a library book in SPO1.  Passage of book1 is "Some text1.".
 book2 is a library book in SPO2.  Passage of book2 is "Some text2.".
@@ -29,10 +30,11 @@ book5 is a library book in SPO5.  Passage of book5 is "Some text5.".
 book6 is a library book in SPO6.  Passage of book6 is "Some text6.".
 book7 is a library book in SPO7.  Passage of book7 is "Some text7.".
 book8 is a library book in SPO9.  Passage of book8 is "Some text8.".
+book9 is a library book in SPO10.  Passage of book9 is "Some text9.".
 
 Part Lucian - SPO8
 
-[So!  Here's the basic idea behind this section:  the backstory is that Emmett Josey was an African American librarian back in the 20's, who ]
+[So!  Here's the basic idea behind this section:  the backstory is that Emmett Josey was an African American librarian back in the 20's.  Then the KKK moved in , in its 20's revival, and managed to get a law passed that blacks needed a separate drinking fountain.  This pissed off Emmett, who, after the second fountain was installed, took a sledgehammer to destroy it, but was stopped by KKK members, who ended up killing him in the resulting altercation.  The player needs to finish the job!]
 
 Chapter Rules - rules about books and more
 
@@ -45,7 +47,25 @@ Chapter Room - The Drinking Fountain room itself
 
 Printed name of SPO8 is "Drinking Fountain (Lucian Smith)".
 
-Description of SPO8 is "NE."
+Description of SPO8 is "A public drinking foutain is placed in a nook here, nearly overgrown with ivy.  You can return to the town square to the northeast."
+
+lp-ivy is fixed in place plural-named undescribed in SPO8.  Understand "overgrown", "overgrowth", "ivy", "thick ivy" as lp-ivy.  The description of lp-ivy is "Thick ivy grows around the fountain, obscuring all but the bowl and spout."  The printed name of lp-ivy is "ivy".
+
+lp-fountain is fixed in place undescribed in SPO8.  Understand "fountain", "drinking fountain", "spout", "bowl", "brick", "water" as lp-fountain.  The description of lp-fountain is "An ornate brick drinking fountain, with a spout above a silver bowl, a button underneath, and surrounded by ivy."   The printed name of lp-fountain is "fountain".
+
+lp-button is a device.  It is part of the lp-fountain.  Understand "button" as lp-button.  The printed name of lp-button is "button".  The description of lp-button is "A round button set in the brick underneath the bowl of the drinking fountain."
+
+Instead of pushing or switching on or switching off the lp-button:
+	If lp-ghost5 is happening:
+		say "You take a drink from the fountain.  The water is cold, clear, and satisfying.";
+		rule succeeds;
+	else:
+		say "You take a drink from the fountain.  The water is lukewarm and vaguely brackish.";
+		rule succeeds;
+
+Instead of drinking the lp-fountain, try pushing the lp-button.
+
+Understand "drink from [something]" as drinking while the location is SPO8.
 
 Chapter Emmett - The Ghost Scenes
 
@@ -62,6 +82,7 @@ Emmett is a man.  "A faint chill is in the air."  Emmett is privately-named.  Th
 Understand "chill", "faint chill" as Emmett while lp-ghost1 is happening.
 Understand "spark", "chalk", "snap", "ice cracking", "hovering", "chill" as Emmett while lp-ghost2 is happening.
 Understand "ghost", "chill", "spark", "chalk", "snap", "hovering", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost3 is happening.
+Understand "ghost", "chill", "spark", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost4 is happening.
 
 
 When lp-ghost1 begins:
@@ -78,6 +99,12 @@ When lp-ghost3 begins:
 	now the description of Emmett is "The outline of an African-American man in a suit and tie fades in and out of view around a hovering spark.";
 	now the printed name of Emmett is "well-dressed ghost";
 	now the initial appearance of Emmett is "The outline of a well-dressed man moves slowly around you."
+
+When lp-ghost4 begins:
+	say "The well-dressed man's outline coalesces into form like ice spreading across a pond.  Pleased, he watches his hands move, and brushes a bit of frost off of a shoulder.  Then he starts and looks away, as if remembering something.  His features darken and the air goes cold as he frowns.";
+	now the description of Emmett is "A well-dressed and glowering African-American man, [if the location is SPO8]impatient[otherwise]moving[end if] with a sense of purpose.";
+	now the printed name of Emmett is "well-dressed ghost";
+	now the initial appearance of Emmett is "[if the location is SPO8]An almost transparent African American man in a suit and tie glares at the drinking fountain, and ."
 
 Every turn during lp-ghost1:
 	if the holder of Emmett is not the holder of the player:
@@ -97,10 +124,8 @@ Every turn during lp-ghost4:
 		if the right direction is not nothing:
 			let the right destination be the room the right direction from the location of Emmett;
 			if the location of Emmett is the location of the player:
-				say "With a scowl and a sense of purpose, the well-dressed man moves [the right direction] out of sight.";
+				say "With a scowl and a sense of purpose, the well-dressed man moves [right direction] and out of sight.";
 			move Emmett to the right destination;
-	if the holder of Emmett is not the holder of the player:
-		move Emmett to the holder of the player;
 
 [Every turn during lp-ghost5:
 	if the holder of Emmett is not the holder of the player:
