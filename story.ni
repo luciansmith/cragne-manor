@@ -10,6 +10,16 @@ SPO is a region.
 
 SPO8 is a room in SPO. SPO8 is southwest from SPO1.
 
+To say library insignia:
+	say "the insignia of the Backwater Public Library[one of], two back-to-back crescent moons joined by an eye looking down at an open book[or][stopping]".
+
+To say Library insignia:
+	let the result be "[library insignia]" in sentence case;
+	say the result.
+
+To say library insignia sentence:
+	say "A sticker on the spine bears [library insignia]."
+
 Part 0 - Fake rest of the game for testing
 
 SPO1 is a room in SPO.  "SW; W; N; E".
@@ -89,7 +99,9 @@ Instead of searching or looking under lp-ivy:
 	Remove the lp-ivy from play;
 	move lp-searched-ivy to SPO8;
 	move lp-fountain2 to SPO8;
-	say "You pull back the ivy from the side of the fountain, revealing, for some reason, a second fountain."
+	say "You pull back the ivy from the side of the fountain, revealing, for some reason, a second fountain.";
+	if lp-ghost5 is happening:
+		carry out lp-sledgehammer-quest
 
 lp-searched-ivy is fixed in place undescribed.  Understand "ivy", "thick", "pulled", "pulled back" as lp-searched-ivy.  The description of lp-searched-ivy is "Thick ivy that has been pulled back to reveal the side of the fountain, where a secondary fountain has been installed."
 
@@ -133,6 +145,9 @@ Instead of inserting the lp-ghostly-sledgehammer into something:
 
 Instead of attacking the lp-sign: try attacking the lp-fountain2.
 Instead of attacking the lp-rusty-button: try attacking the lp-fountain2.
+Instead of attacking the lp-fountain2 when the lp-ghostly-sledgehammer is carried by the player:
+	try lp-attacking-with the lp-fountain2 with the lp-ghostly-sledgehammer.
+
 
 lp-attacking-with it with is an action applying to two things.
 
@@ -142,12 +157,21 @@ Carry out lp-attacking-with:  say "Violence isn't the answer to this one."; rule
 
 Carry out lp-attacking-with the lp-fountain2 with:  say "For some reason, the fountain seems impervious to [the second noun]."; rule fails.
 
+	
+
 Carry out lp-attacking-with the lp-fountain2 with the lp-ghostly-sledgehammer:
 	Remove the lp-fountain2 from play;
-	Move the lp-ragged-hole to SPO8.
+	remove the lp-ghostly-sledgehammer from play;
+	Move the lp-ragged-hole to SPO8;
+	say "With a shout, you attack the 'colored' fountain with the sledgehammer.  Memories bubble up inside you with each strike.  BAM.  Standing at the counter for an hour, while everyone but you is served.  BAM.  The constant, [bold type]constant[roman type] looks of surprise when people walk in and see someone like you working in a place like that.  BAM.  Being at least interrogated by the police if not outright arrested any time an unsolved crime took place in town.  BAM.  Your friends--your [bold type]friends[roman type]--voting to install this BAM damn BAM fountain. BAM. BAM. BAM.  The last of the fountain finally disintigrates beneath your blows, and fatigue overtakes you.  You slump against the fountain, breathing heavily, and the sledgehammer slips from your grasp and fades from view."
 
+Chapter Ragged Hole and Book
 	
-An lp-ragged-hole is fixed in place container.  The description is "A ragged hole gapes ominously in the side of the fountain where the secondary fountain used to be."
+An lp-ragged-hole is fixed in place container.  "A ragged hole graces the side of the brick fountain."  The description is "A ragged hole gapes ominously in the side of the fountain where the secondary fountain used to be."  Understand "ragged", "hole", "side" as the lp-ragged-hole.  The printed name of the lp-ragged-hole is "ragged hole".
+
+The lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled, 'Backwater Personalities (1915-1925 edition)'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various pictures of men and women in 1920's garb and short write-ups about them until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his write-up:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize the ---TO BE CONTINUED"
+
+
 
 Chapter Emmett - The Ghost Scenes
 
@@ -188,6 +212,15 @@ When lp-ghost4 begins:
 	now the description of Emmett is "A well-dressed and glowering African-American man, [if the location is SPO8]impatient[otherwise]moving[end if] with a sense of purpose.";
 	now the printed name of Emmett is "well-dressed ghost";
 	now the initial appearance of Emmett is "Frost lines the path of the well-dressed man, slowly fading behind him."
+	
+When lp-ghost5 begins:
+	if lp-fountain2 is in SPO8:
+		carry out lp-sledgehammer-quest
+		
+
+To carry out lp-sledgehammer-quest:
+	now the lp-ghostly-sledgehammer is in the player;
+	say "You get a sledgehammer."
 
 Every turn during lp-ghost1:
 	if the holder of Emmett is not the holder of the player:
@@ -267,11 +300,7 @@ Instead of showing or giving a library book to Emmett during lp-ghost3:
 	else:
 		say "He looks at the book and nods, but makes no other move."
 
-After reading a lp-ghost-unread library book during lp-ghost4:
-	now the noun is lp-ghost-read;
-	say "You feel like you're being watched."
-
-After reading a lp-ghost-unread library book during lp-ghost5:
+After reading a lp-ghost-unread library book in SPO8 during lp-ghost5:
 	now the noun is lp-ghost-read;
 	say "You feel like you're being watched."
 
