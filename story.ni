@@ -67,6 +67,14 @@ After examining the library insignia:
 	let x be a random lp-ghost-read library book carried by the player;
 	if x is not nothing, say "Frost lines the edges of the library insignia of [the x]."
 
+Instead of examining the player when the location is SPO8:
+	say “You're feeling tired, and your hair is a mess.”
+
+Instead of examining the player when the location is SPO8 during lp-ghost6:
+	say “You're still feeling tired, but confident as well.”
+
+The commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!"
+
 Chapter Room - The Drinking Fountain room itself
 
 Printed name of SPO8 is "Drinking Fountain (Lucian Smith)".
@@ -173,19 +181,20 @@ Chapter Ragged Hole and Book
 	
 An lp-ragged-hole is fixed in place container.  "A ragged hole graces the side of the brick fountain."  The description is "A ragged hole gapes ominously in the side of the fountain where the secondary fountain used to be."  Understand "ragged", "hole", "side" as the lp-ragged-hole.  The printed name of the lp-ragged-hole is "ragged hole".
 
-The lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled, '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920's garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face--he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)" as the lp-library-book.
+The lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled, '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920's garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face: he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)" as the lp-library-book.
 
 The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE."   Understand "clipped", "newspaper", "article", "1926" as the lp-article.  The printed name of the lp-article is "clipped newpaper article".  The passage is "May 24th, 1926[line break][line break]LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE[line break][line break]Local librarian and black man Emmett Josey was found dead next to a sledgehammer in the town square last night, a victim of suspected foul play.  The sledgehammer has been identified as belonging to the deceased, but why he would have had it with him, at night, in the town square, has been the subject of much debate.  Responding to speculation that Josey may have been upset by the recent vote to install a second drinking fountain to better serve the needs of our whole community, the bill's sponsor Vincent Cragne (a second cousin to our mayor), speaking at the bill-signing ceremony, said, 'While Mr. Josey was somewhat vocal in his opposition to the bill, like all of us, he knew that bowing to the will of the majority is a cornerstone of a democratic society, and informed me personally that he bore me no ill will.'  Despite the unfortunate circumstances, the bill-signing ceremony proceeded as planned,  the only hitch being that Mr. Cragne was unable to sign the bill himself, due to a recent farming accident that left his right hand shattered.  We wish him all the best for a speedy recovery.  The circumstances of Mr. Josey's death are expected to remain unsolved."
 
 After reading the lp-library-book for the first time:
 	say "There's a clipped newspaper article tucked inside the book at that page, which you remove.";
-	move the lp-article to the player.
+	move the lp-article to the player;
+	continue the action.
 	
 
 
 Chapter Emmett - The Ghost Scenes
 
-lp-ghost1 is a scene.  lp-ghost1 begins when the location is SPO1 for the first time.  lp-ghost1 ends when the number of lp-ghost-read library books is at least 3.
+lp-ghost1 is a scene.  lp-ghost1 begins when the number of seen library books is at least 1.  lp-ghost1 ends when the number of lp-ghost-read library books is at least 3.
 lp-ghost2 is a scene.  lp-ghost2 begins when lp-ghost1 ends.  lp-ghost2 ends when the number of lp-ghost-read library books is at least 6.
 lp-ghost3 is a scene.  lp-ghost3 begins when lp-ghost2 ends.  lp-ghost3 ends when the number of lp-ghost-read library books is at least 9.
 lp-ghost4 is a scene.  lp-ghost4 begins when lp-ghost3 ends.  lp-ghost4 ends when the location of Emmett is SPO8 and the location is SPO8.
@@ -201,7 +210,7 @@ Understand "spark", "chalk", "snap", "ice cracking", "hovering", "chill" as Emme
 Understand "ghost", "chill", "spark", "chalk", "snap", "hovering", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost3 is happening.
 Understand "ghost", "chill", "spark", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost4 is happening.
 Understand "ghost", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost5 is happening.
-Understand "Emmett", "shoulder", "ghost", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost6 is happening.
+Understand "Emmett", "cold", "spot", "collarbone", "collar", "shoulder", "your collarbone", "my collarbone", "ghost", "well-dressed", "African-American", "black", "man" as Emmett while lp-ghost6 is happening.
 
 
 When lp-ghost1 begins:
@@ -211,30 +220,36 @@ When lp-ghost2 begins:
 	say "A snap like ice cracking behind you makes you jump.";
 	now the description of Emmett is "Something like a spark of chalk hovers in the air behind you.  As you watch, it fades, only to reappear to your right in a wash of cold.";
 	now the printed name of Emmett is "hovering spark";
-	now the initial appearance of Emmett is "A chalky spark hovers in the air, emanating cold."
+	now the initial appearance of Emmett is "A chalky spark hovers in the air, emanating cold.";
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  At this point, you may have noticed something following you around.  That's actually my code, triggered on the player's actions still completely disconnected to this actual room."
 
 When lp-ghost3 begins:
 	say "With another snap, the air seems to shift, and the faint outline of a man coalesces around the spark.";
 	now the description of Emmett is "The outline of an African-American man in a suit and tie fades in and out of view around a hovering spark.";
 	now the printed name of Emmett is "well-dressed ghost";
-	now the initial appearance of Emmett is "The outline of a well-dressed man moves slowly around you."
+	now the initial appearance of Emmett is "The outline of a well-dressed man moves slowly around you.";
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that."
 
 When lp-ghost4 begins:
 	say "The well-dressed man's outline coalesces into form like ice spreading across a pond.  Pleased, he watches his hands move, and brushes a bit of frost off of a shoulder.  Then he starts and looks away, as if remembering something.  His features darken and the air goes cold as he frowns.";
 	now the description of Emmett is "A well-dressed and glowering African-American man, [if the location is SPO8]impatient[otherwise]moving[end if] with a sense of purpose.";
 	now the printed name of Emmett is "well-dressed ghost";
-	now the initial appearance of Emmett is "Frost springs up along the path of the well-dressed man, and slowly fades behind him."
+	now the initial appearance of Emmett is "Frost springs up along the path of the well-dressed man, and slowly fades behind him.";
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos."
 	
 When lp-ghost5 begins:
 	if lp-fountain2 is in SPO8:
 		The lp-sledgehammer-quest happens in two turns from now;
 	now the printed name of Emmett is "well-dressed ghost";
-	now the initial appearance of Emmett is "The well-dressed man scowls, glaring at [if the lp-fountain2 is in SPO8]the fountain[otherwise]the ivy[end if]."
+	now the initial appearance of Emmett is "The well-dressed man scowls, glaring at [if the lp-fountain2 is in SPO8]the fountain[otherwise]the ivy[end if].";
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos.  Then the 'public drinking fountain' prompt made me think of the 'whites only' and 'colored' drinking fountains, and 'racism' seemed a fitting theme for an 'uncovering old horrors' type of game."
 		
 When lp-ghost6 begins:
-	say "The well-dressed man comes up and puts a cold hand on your shoulder.  His mouth doesn't move, but you hear a faint, accented voice, speaking inside your head.  'Thank you.  That was... satisfying.  It's not enough.  But it was still satisfying.'  The man's shoulders slump, and you hear a sigh.  'I... might be able to help.  I'll try, at least.'  The man begins fading from view, as the spot on your shoulder where he's touching you gets colder and colder.  You gasp with pain and clutch the spot just as the man fades entirely.  Slowly, your shoulder begins to warm up again, but a spot on your collarbone remains cold to the touch.";
-	now the printed name of Emmett is "cold spot on your shoulder";
+	say "The well-dressed man comes up and puts a cold hand on your shoulder.  His mouth doesn't move, but you hear a faint, accented voice, speaking inside your head.  'Thank you.  That was... satisfying.  It's not enough.  But it was still satisfying.'  The man's shoulders straighten as if a weight was lifted off of them, and you hear a sigh.  'I... might be able to help.  I'll try, at least.'  The man begins fading from view, as the spot on your shoulder where he's touching you gets colder and colder.  You gasp with pain and clutch the spot just as the man fades entirely.  Slowly, your shoulder begins to warm up again, but a spot on your collarbone remains cold to the touch.";
+	now the printed name of Emmett is "cold spot on your collarbone";
+	now the description of Emmett is "There's a cold spot on your shoulder where Emmett touched you before disappearing.  It feels a little uncomfortable, but natural, somehow.";
 	now Emmett is part of the player;
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos.  Then the 'public drinking fountain' prompt made me think of the 'whites only' and 'colored' drinking fountains, and 'racism' seemed a fitting theme for an 'uncovering old horrors' type of game.  I did a search for 'the KKK in Vermont in the 20s', and found that there were indeed a few years in there where the KKK managed to successfully establish themselves in some areas.  I figured Backwater was the perfect place for that to happen, and from there, it was just a matter of getting everything lined up and telling a coherent story--and of writing some perky cluelessly-racist prose.  Which was, with any luck, as uncomfortable to read as it was to write."
 
 At the time when the lp-sledgehammer-quest happens:
 	move the lp-ghostly-sledgehammer to the player;
@@ -333,5 +348,5 @@ After reading a lp-ghost-unread library book in SPO8 during lp-ghost5:
 
 After reading a lp-ghost-unread library book during lp-ghost6:
 	now the noun is lp-ghost-read;
-	say "As you finish reading the passage, your own hands grow cold, and the book briefly frosts over before fading again, leaving traces behind only in the library insignia ."
+	say "As you finish reading the passage, your own hands grow cold, and the book briefly frosts over before fading again, leaving traces behind only in the library insignia."
 
