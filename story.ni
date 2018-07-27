@@ -12,11 +12,10 @@ SPO is a region.
 SPO8 is a room in SPO. SPO8 is southwest from SPO1.
 
 To say library insignia:
-	say "the insignia of the Backwater Public Library[one of], two back-to-back crescent moons joined by an eye looking down at an open book[or][stopping]".
+	say "the insignia of the Backwater Public Library[one of], two back-to-back crescent moons joined by an eye looking down at an open book,[or][stopping]".
 
 To say Library insignia:
-	let the result be "[library insignia]" in sentence case;
-	say the result.
+	say "The insignia of the Backwater Public Library[one of], two back-to-back crescent moons joined by an eye looking down at an open book,[or][stopping]".
 
 To say library insignia sentence:
 	say "A sticker on the spine bears [library insignia]."
@@ -73,6 +72,15 @@ Instead of examining the player when the location is SPO8:
 Instead of examining the player when the location is SPO8 during lp-ghost6:
 	say “You're still feeling tired, but confident as well.”
 
+Instead of closing a book in SPO8:
+	say "[The noun] is as closed as it's going to get."
+
+Instead of searching a book in SPO8:
+	try reading the noun
+	
+Instead of cutting a library book in SPO8:
+	say "The horrors of this world have not yet driven you to such madness as to seriously consider defacing a library book."
+
 The commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!"
 
 Chapter Room - The Drinking Fountain room itself
@@ -84,9 +92,9 @@ Description of SPO8 is "A public drinking foutain is placed in a nook here, near
 
 Section fountain - the fountain/button
 
-lp-fountain is fixed in place undescribed in SPO8.  Understand "fountain", "drinking fountain", "spout", "bowl", "brick", "water" as lp-fountain.  The description of lp-fountain is "An ornate brick drinking fountain, with a spout above a silver bowl, a button underneath, and surrounded by ivy."   The printed name of lp-fountain is "fountain".
+An lp-fountain is fixed in place undescribed in SPO8.  Understand "fountain", "drinking fountain", "spout", "bowl", "brick", "water" as lp-fountain.  The description of lp-fountain is "An ornate brick drinking fountain, with a spout above a silver bowl, a button underneath, and surrounded by ivy."   The printed name of lp-fountain is "fountain".
 
-lp-button is a device.  It is part of the lp-fountain.  Understand "button", "round" as lp-button.  The printed name of lp-button is "round button".  The description of lp-button is "A round button set in the brick underneath the bowl of the drinking fountain."
+The lp-button is a device.  It is part of the lp-fountain.  Understand "button", "round" as lp-button.  The printed name of lp-button is "round button".  The description of lp-button is "A round button set in the brick underneath the bowl of the drinking fountain."
 
 Instead of pushing or switching on or switching off the lp-button:
 	If lp-ghost6 is happening:
@@ -96,17 +104,23 @@ Instead of pushing or switching on or switching off the lp-button:
 		say "You take a drink from the fountain.  The water is lukewarm and vaguely brackish.";
 		rule succeeds;
 		
+Instead of pulling the lp-button:
+	say "The button is designed to be pushed, not pulled."
+
 Instead of examining the lp-button: say "[the description of the lp-button][line break]"; rule succeeds.
 
 Instead of drinking the lp-fountain, try pushing the lp-button.
+
+Instead of pushing or switching on or switching off or eating or tasting the lp-fountain:
+	try pushing the lp-button;
 
 Understand "drink from [something]" as drinking while the location is SPO8.
 
 Section ivy - the ivy concealing the second fountain
 
-lp-ivy is fixed in place undescribed in SPO8.  Understand "overgrown", "overgrowth", "ivy", "thick", "leaves" as lp-ivy.  The description of lp-ivy is "Thick ivy grows around the fountain, obscuring all but the bowl and spout."  The printed name of lp-ivy is "ivy".  The plural of ivy is ivy.
+The lp-ivy is fixed in place undescribed in SPO8.  Understand "overgrown", "overgrowth", "ivy", "thick", "leaves" as lp-ivy.  The description of lp-ivy is "Thick ivy grows around the fountain, obscuring all but the bowl and spout."  The printed name of lp-ivy is "ivy".  The plural of ivy is ivy.
 
-Instead of searching or looking under lp-ivy:
+Instead of pulling or pushing or turning or searching or looking under or opening the lp-ivy:
 	Remove the lp-ivy from play;
 	move lp-searched-ivy to SPO8;
 	move lp-fountain2 to SPO8;
@@ -114,9 +128,10 @@ Instead of searching or looking under lp-ivy:
 	if lp-ghost5 is happening:
 		The lp-sledgehammer-quest happens in 2 turns from now
 
-lp-searched-ivy is fixed in place undescribed.  Understand "ivy", "thick", "pulled", "pulled back" as lp-searched-ivy.  The description of lp-searched-ivy is "Thick ivy that has been pulled back to reveal the side of the fountain, where a secondary fountain has been installed."
+	
+The lp-searched-ivy is fixed in place undescribed.  Understand "ivy", "thick", "pulled", "pulled back" as lp-searched-ivy.  The description of lp-searched-ivy is "Thick ivy that has been pulled back to reveal the side of the fountain, where a secondary fountain has been installed."  The printed name of the lp-searched-ivy is "ivy".
 
-Instead of searching or looking under lp-searched-ivy, say "You rummage through the leaves, but find nothing else."
+Instead of pulling or pushing or turning or searching or looking under or opening the lp-searched-ivy, say "You rummage through the leaves, but find nothing else."
 
 Instead of searching or looking under the lp-fountain:
 	if the lp-ivy is in SPO8:
@@ -126,6 +141,15 @@ Instead of searching or looking under the lp-fountain:
 
 Understand "look behind [something]" as searching while the location is SPO8.
 
+Instead of attacking the lp-fountain during lp-ghost6:
+	say "Violence isn't the answer to this one.  Any more, at least."
+
+Instead of attacking the lp-searched-ivy during lp-ghost6:
+	say "Violence isn't the answer to this one.  Any more, at least."
+
+Instead of attacking the lp-ragged-hole during lp-ghost6:
+	say "Violence isn't the answer to this one.  Any more, at least."
+	
 Section second fountain
 
 The lp-fountain2 is fixed in place.  Understand "fountain", "second", "secondary", "smaller", "decaying leaves"  as lp-fountain2.  The initial appearance of lp-fountain2 is "Behind the main fountain, mounted in the same pillar of brick, is a second, somewhat smaller fountain."  The description of the lp-fountain2 is "The smaller fountain is nearly obscured by the disturbed ivy.  Its bowl is filled with decaying leaves and crawling insects, and rust covers all its exposed metal.  A crumbling sign is mounted in the brick above the spout.".  The printed name of the lp-fountain2 is "secondary fountain".
@@ -176,12 +200,15 @@ Carry out lp-attacking-with the lp-fountain2 with the lp-ghostly-sledgehammer:
 	Move the lp-ragged-hole to SPO8;
 	say "With a shout, you attack the 'colored' fountain with the sledgehammer.  Memories bubble up inside you with each strike.  BAM.  Standing at the counter for an hour, while everyone but you is served.  BAM.  The constant, [bold type]constant[roman type] looks of surprise when people walk in and see someone like you working in a place like that.  BAM.  Being at least interrogated by the police if not outright arrested any time an unsolved crime takes place in town.  BAM.  Your friends--your [bold type]friends[roman type]--voting to install BAM this BAM damn BAM fountain. BAM. BAM. BAM.  The last of the fountain finally disintigrates beneath your blows, and fatigue overtakes you.  You slump against the fountain, breathing heavily, and the sledgehammer slips from your grasp and fades from view.";
 	rule succeeds.
+	
+Instead of throwing the lp-ghostly-sledgehammer at something:
+	say "The sledgehammer mists to nothing as it leaves your hand, then rematerializes in your arms."
 
 Chapter Ragged Hole and Book
 	
 An lp-ragged-hole is fixed in place container.  "A ragged hole graces the side of the brick fountain."  The description is "A ragged hole gapes ominously in the side of the fountain where the secondary fountain used to be."  Understand "ragged", "hole", "side" as the lp-ragged-hole.  The printed name of the lp-ragged-hole is "ragged hole".
 
-The lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled, '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920's garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face: he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)" as the lp-library-book.
+The lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920's garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face: he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)" as the lp-library-book.
 
 The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE."   Understand "clipped", "newspaper", "article", "1926" as the lp-article.  The printed name of the lp-article is "clipped newpaper article".  The passage is "May 24th, 1926[line break][line break]LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE[line break][line break]Local librarian and black man Emmett Josey was found dead next to a sledgehammer in the town square last night, a victim of suspected foul play.  The sledgehammer has been identified as belonging to the deceased, but why he would have had it with him, at night, in the town square, has been the subject of much debate.  Responding to speculation that Josey may have been upset by the recent vote to install a second drinking fountain to better serve the needs of our whole community, the bill's sponsor Vincent Cragne (a second cousin to our mayor), speaking at the bill-signing ceremony, said, 'While Mr. Josey was somewhat vocal in his opposition to the bill, like all of us, he knew that bowing to the will of the majority is a cornerstone of a democratic society, and informed me personally that he bore me no ill will.'  Despite the unfortunate circumstances, the bill-signing ceremony proceeded as planned,  the only hitch being that Mr. Cragne was unable to sign the bill himself, due to a recent farming accident that left his right hand shattered.  We wish him all the best for a speedy recovery.  The circumstances of Mr. Josey's death are expected to remain unsolved."
 
@@ -190,7 +217,11 @@ After reading the lp-library-book for the first time:
 	move the lp-article to the player;
 	continue the action.
 	
-
+Instead of entering the lp-ragged-hole:
+	say "The ragged hole is too small to enter."
+	
+Instead of opening the lp-ragged-hole:
+	say "It's already open."
 
 Chapter Emmett - The Ghost Scenes
 
@@ -234,7 +265,7 @@ When lp-ghost4 begins:
 	say "The well-dressed man's outline coalesces into form like ice spreading across a pond.  Pleased, he watches his hands move, and brushes a bit of frost off of a shoulder.  Then he starts and looks away, as if remembering something.  His features darken and the air goes cold as he frowns.";
 	now the description of Emmett is "A well-dressed and glowering African-American man, [if the location is SPO8]impatient[otherwise]moving[end if] with a sense of purpose.";
 	now the printed name of Emmett is "well-dressed ghost";
-	now the initial appearance of Emmett is "Frost springs up along the path of the well-dressed man, and slowly fades behind him.";
+	now the initial appearance of Emmett is "Frost springs up along the path of the well-dressed man, then slowly fades behind him.";
 	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos."
 	
 When lp-ghost5 begins:
@@ -249,6 +280,7 @@ When lp-ghost6 begins:
 	now the printed name of Emmett is "cold spot on your collarbone";
 	now the description of Emmett is "There's a cold spot on your shoulder where Emmett touched you before disappearing.  It feels a little uncomfortable, but natural, somehow.";
 	now Emmett is part of the player;
+	now the description of the lp-searched-ivy is "Thick ivy has been pulled back to reveal the side of the fountain, where a ragged hole is exposed.";
 	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos.  Then the 'public drinking fountain' prompt made me think of the 'whites only' and 'colored' drinking fountains, and 'racism' seemed a fitting theme for an 'uncovering old horrors' type of game.  I did a search for 'the KKK in Vermont in the 20s', and found that there were indeed a few years in there where the KKK managed to successfully establish themselves in some areas.  I figured Backwater was the perfect place for that to happen, and from there, it was just a matter of getting everything lined up and telling a coherent story--and of writing some perky cluelessly-racist prose.  Which was, with any luck, as uncomfortable to read as it was to write."
 
 At the time when the lp-sledgehammer-quest happens:
@@ -303,6 +335,9 @@ After reading a lp-ghost-unread library book during lp-ghost1:
 	now the noun is lp-ghost-read;
 	say "The chill behind you intensifies, and you feel like you're being watched."
 
+Instead of listening to Emmett:
+	say "[Emmett] makes no sound at all."
+
 Instead of touching Emmett during lp-ghost1:
 	say "You move your hand into the chill, and feel a faint shudder before it fades again."	
 
@@ -342,9 +377,14 @@ Instead of showing or giving a library book to Emmett during lp-ghost3:
 	else:
 		say "He looks at the book and nods, but makes no other move."
 
+Instead of showing or giving something to Emmett during lp-ghost4:
+	say "The well-dressed man is going somewhere, and is not interested in anything else right now."
+
+Instead of touching Emmett during lp-ghost4:
+	say "The well-dressed man moves away before you can do that."
+
 After reading a lp-ghost-unread library book in SPO8 during lp-ghost5:
 	say "The well-dressed man glances your direction, but his attention seems fixed on [if lp-fountain2 is in SPO8]the fountain[otherwise]the ivy[end if]."
-
 
 After reading a lp-ghost-unread library book during lp-ghost6:
 	now the noun is lp-ghost-read;
