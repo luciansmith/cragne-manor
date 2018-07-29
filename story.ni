@@ -60,7 +60,7 @@ Part Lucian - SPO8
 Chapter Rules - rules about books and more
 
 A library book can be lp-ghost-read or lp-ghost-unread.  A library book is usually lp-ghost-unread. 
-A library book can be lp-ghost-commented.  A library book is usually not lp-ghost-commented.
+[A library book can be lp-ghost-commented.  A library book is usually not lp-ghost-commented.]
 
 After examining a lp-ghost-read library book, say "Frost lines the edges of the library insignia."
 
@@ -89,7 +89,7 @@ Chapter Room - The Drinking Fountain room itself
 
 Printed name of SPO8 is "Drinking Fountain (Lucian Smith)".
 
-Description of SPO8 is "A public drinking foutain is placed in a nook here, nearly overgrown with ivy.  You can return to the town square to the northeast."
+Description of SPO8 is "A public drinking fountain is placed in a nook here, nearly overgrown with ivy.  You can return to the town square to the northeast."
 
 
 Section fountain - the fountain/button
@@ -154,11 +154,11 @@ Instead of attacking the lp-ragged-hole during lp-ghost6:
 	
 Section second fountain
 
-The lp-fountain2 is fixed in place.  Understand "fountain", "second", "secondary", "smaller", "decaying leaves"  as lp-fountain2.  The initial appearance of lp-fountain2 is "Behind the main fountain, mounted in the same pillar of brick, is a second, somewhat smaller fountain."  The description of the lp-fountain2 is "The smaller fountain is nearly obscured by the disturbed ivy.  Its bowl is filled with decaying leaves and crawling insects, and rust covers all its exposed metal.  A crumbling sign is mounted in the brick above the spout.".  The printed name of the lp-fountain2 is "secondary fountain".
+The lp-fountain2 is fixed in place.  Understand "fountain", "second", "secondary", "smaller", "decaying", "leaves", "bowl", "crawling", "insects", "rust", "exposed", "metal", "spout"  as lp-fountain2.  The initial appearance of lp-fountain2 is "Behind the main fountain, mounted in the same pillar of brick, is a second, somewhat smaller fountain."  The description of the lp-fountain2 is "The smaller fountain is nearly obscured by the disturbed ivy.  Its bowl is filled with decaying leaves and crawling insects, and rust covers all its exposed metal.  A crumbling sign is mounted in the brick above the spout.".  The printed name of the lp-fountain2 is "secondary fountain".
 
-An lp-sign is part of the lp-fountain2.  The description is "COLORED".  Understand "colored", "only", "sign", "second", "secondary" as lp-sign.  The printed name of the lp-sign is "sign".
+An lp-sign is part of the lp-fountain2.  The description is "COLORED".  Understand "colored", "only", "sign", "second", "secondary", "crumbling" as lp-sign.  The printed name of the lp-sign is "sign".
 
-An lp-rusty-button is a device.  It is part of the lp-fountain2.
+An lp-rusty-button is a device.  It is part of the lp-fountain2.  Understand "rusty", "button", "second", "smaller", "secondary", "rust" as the lp-rusty-button
 
 Instead of pushing or switching on or switching off the lp-rusty-button:
 	say "The rusty button on the secondary fountain does nothing when you push it."
@@ -172,7 +172,7 @@ Instead of examining the lp-rusty-button: say "[the description of the lp-rusty-
 
 Section Violence Is The Answer To This One
 
-An lp-ghostly-sledgehammer is a thing.  The description is "A hefty, if somewhat insubstantial, sledgehammer.  It looks old and well-made."  Understand "hefty", "insubstantial", "slegehammer", "hammer", "old", "well-made", "ghostly" as the lp-ghostly-sledgehammer.   The printed name of the lp-ghostly-sledgehammer is "ghostly sledgehammer".
+An lp-ghostly-sledgehammer is a thing.  The description is "A hefty, if somewhat insubstantial, sledgehammer.  It looks old and well-made."  Understand "hefty", "insubstantial", "sledgehammer", "hammer", "old", "well-made", "ghostly" as the lp-ghostly-sledgehammer.   The printed name of the lp-ghostly-sledgehammer is "ghostly sledgehammer".
 
 Instead of dropping the lp-ghostly-sledgehammer:
 	say "Your fingers involuntarily clench in anger, leaving you unable to drop the ghostly sledgehammer."
@@ -190,6 +190,15 @@ Instead of attacking the lp-fountain2 when the lp-ghostly-sledgehammer is carrie
 
 lp-attacking-with it with is an action applying to two things.
 
+Instead of attacking the lp-fountain during lp-ghost5:
+	try lp-attacking-with the lp-fountain with the lp-ghostly-sledgehammer.
+	
+Instead of lp-attacking-with the lp-fountain with something during lp-ghost5:
+	if the second noun is the lp-ghostly-sledgehammer:
+		say "You attack the main fountain with the sledgehammer, but it passes harmlessly through.";
+	else:
+		say "The main fountain doesn't seem to be the problem."
+
 Understand "attack [something] with [something carried]" as lp-attacking-with it with when the location is SPO8.
 
 Carry out lp-attacking-with:  say "Violence isn't the answer to this one."; rule fails.
@@ -200,7 +209,7 @@ Carry out lp-attacking-with the lp-fountain2 with the lp-ghostly-sledgehammer:
 	Remove the lp-fountain2 from play;
 	remove the lp-ghostly-sledgehammer from play;
 	Move the lp-ragged-hole to SPO8;
-	say "With a shout, you attack the 'colored' fountain with the sledgehammer.  Memories bubble up inside you with each strike.  BAM.  Standing at the counter for an hour, while everyone but you is served.  BAM.  The constant, [bold type]constant[roman type] looks of surprise when people walk in and see someone like you working in a place like that.  BAM.  Being at least interrogated by the police if not outright arrested any time an unsolved crime takes place in town.  BAM.  Your friends--your [bold type]friends[roman type]--voting to install BAM this BAM damn BAM fountain. BAM. BAM. BAM.  The last of the fountain finally disintigrates beneath your blows, and fatigue overtakes you.  You slump against the fountain, breathing heavily, and the sledgehammer slips from your grasp and fades from view.";
+	say "With a shout, you attack the 'colored' fountain with the sledgehammer.  Memories bubble up inside you with each strike.  BAM.  Standing at the counter for an hour, while everyone but you is served.  BAM.  The constant, [bold type]constant[roman type] looks of surprise when people walk in and see someone like you working in a place like that.  BAM.  Being at least interrogated by the police if not outright arrested any time an unsolved crime takes place in town.  BAM.  Your friends--your [bold type]friends[roman type]--voting to install BAM this BAM damn BAM fountain. BAM. BAM. BAM.  The last of the fountain finally disintegrates beneath your blows, and fatigue overtakes you.  You slump against the fountain, breathing heavily, and the sledgehammer slips from your grasp and fades from view.";
 	rule succeeds.
 	
 Instead of throwing the lp-ghostly-sledgehammer at something:
@@ -212,7 +221,7 @@ An lp-ragged-hole is fixed in place container.  "A ragged hole graces the side o
 
 lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920's garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face: he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)", "yellowed" as the lp-library-book.
 
-The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE."   Understand "clipped", "newspaper", "article", "1926" as the lp-article.  The printed name of the lp-article is "clipped newpaper article".  The passage is "May 24th, 1926[line break][line break]LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE[line break][line break]Local librarian and black man Emmett Josey was found dead next to a sledgehammer in the town square last night, a victim of suspected foul play.  The sledgehammer has been identified as belonging to the deceased, but why he would have had it with him, at night, in the town square, has been the subject of much debate.  Responding to speculation that Josey may have been upset by the recent vote to install a second drinking fountain to better serve the needs of our whole community, the bill's sponsor Vincent Cragne (a second cousin to our mayor), speaking at the bill-signing ceremony, said, 'While Mr. Josey was somewhat vocal in his opposition to the bill, like all of us, he knew that bowing to the will of the majority is a cornerstone of a democratic society, and informed me personally that he bore me no ill will.'  Despite the unfortunate circumstances, the bill-signing ceremony proceeded as planned,  the only hitch being that Mr. Cragne was unable to sign the bill himself, due to a recent farming accident that left his right hand shattered.  We wish him all the best for a speedy recovery.  The circumstances of Mr. Josey's death are expected to remain unsolved."
+The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE."   Understand "clipped", "newspaper", "article", "1926" as the lp-article.  The printed name of the lp-article is "clipped newspaper article".  The passage is "May 24th, 1926[line break][line break]LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE[line break][line break]Local librarian and black man Emmett Josey was found dead next to a sledgehammer in the town square last night, a victim of suspected foul play.  The sledgehammer has been identified as belonging to the deceased, but why he would have had it with him, at night, in the town square, has been the subject of much debate.  Responding to speculation that Josey may have been upset by the recent vote to install a second drinking fountain to better serve the needs of our whole community, the bill's sponsor Vincent Cragne (a second cousin to our mayor), speaking at the bill-signing ceremony, said, 'While Mr. Josey was somewhat vocal in his opposition to the bill, like all of us, he knew that bowing to the will of the majority is a cornerstone of a democratic society, and informed me personally that he bore me no ill will.'  Despite the unfortunate circumstances, the bill-signing ceremony proceeded as planned,  the only hitch being that Mr. Cragne was unable to sign the bill himself, due to a recent farming accident that left his right hand shattered.  We wish him all the best for a speedy recovery.  The circumstances of Mr. Josey's death are expected to remain unsolved."
 
 After reading the lp-library-book for the first time:
 	say "There's a clipped newspaper article tucked inside the book at that page, which you remove.";
@@ -331,7 +340,7 @@ After going during lp-ghost6:
 	if x is not nothing:
 		say "You feel a sharp pain from the cold spot on your shoulder, and feel like there's a library book you--or Emmett, perhaps--hasn't read yet.";
 		if the holder of x is not a room:
-			say "You catch a glimpse of frost spreading across [the holder of x] before disappating again."
+			say "You catch a glimpse of frost spreading across [the holder of x] before dissipating again."
 
 After reading a lp-ghost-unread library book during lp-ghost1:
 	now the noun is lp-ghost-read;
@@ -340,7 +349,7 @@ After reading a lp-ghost-unread library book during lp-ghost1:
 Instead of listening to Emmett:
 	say "[Emmett] makes no sound at all."
 
-Instead of touching Emmett during lp-ghost1:
+Instead of touching or rubbing Emmett during lp-ghost1:
 	say "You move your hand into the chill, and feel a faint shudder before it fades again."	
 
 Instead of saying hello to Emmett during lp-ghost1:
@@ -353,13 +362,22 @@ After reading a lp-ghost-unread library book during lp-ghost2:
 	now the noun is lp-ghost-read;
 	say "As you finish reading the passage, the spark moves through the book with an eerie hum, leaving frost behind on the library insignia."
 
-Instead of touching Emmett during lp-ghost2:
+Instead of touching or rubbing Emmett during lp-ghost2:
 	say "As your hand approaches the spark, you feel the warmth draining from your fingertips.  You jerk your hand back just as frost begins to form on your palm."	
+
+Instead of saying hello to Emmett during lp-ghost2:
+	say "The spark flits about, and you're not sure if it's responding to you or not."
+
+Instead of asking Emmett to try hailing during lp-ghost2:
+	say "The spark flits about, and you're not sure if it's responding to you or not."
+
+Instead of attacking Emmett during lp-ghost2:
+	say "The spark dances out of your way."
 
 Instead of showing or giving a library book to Emmett during lp-ghost2:
 	if the noun is lp-ghost-unread:
 		now the noun is lp-ghost-read;
-		say "You hold the book out to the spark, which hesitates, then plunges inside the pages.  [if the noun is held]The book freezes, and tumbles from your hands.  Once dropped,[otherwise]You hear crackling as the book cover freezes over until[end if] the spark re-emerges, frost receeds from the cover, and remains only in the library's insignia.";
+		say "You hold the book out to the spark, which hesitates, then plunges inside the pages.  [if the noun is held]The book freezes, and tumbles from your hands.  Once dropped,[otherwise]You hear crackling as the book cover freezes over until[end if] the spark re-emerges, frost recedes from the cover, and remains only in the library's insignia.";
 		now the noun is in the holder of the player;
 	else:
 		say "The spark moves as if vaguely interested, but you provoke no other reaction."
@@ -368,8 +386,17 @@ After reading a lp-ghost-unread library book during lp-ghost3:
 	now the noun is lp-ghost-read;
 	say "As you finish reading the passage, you realize that the well-dressed man has been reading over your shoulder.  He nods thoughtfully, placing his hand on the cover, leaving frost behind on the library insignia."
 
-Instead of touching Emmett during lp-ghost3:
+Instead of touching or rubbing Emmett during lp-ghost3:
 	say "A reproachful look from the man stops you."	
+
+Instead of saying hello to Emmett during lp-ghost3:
+	say "The man watches you, but shrugs."
+
+Instead of asking Emmett to try hailing during lp-ghost3:
+	say "The man watches you, but shrugs."
+
+Instead of showing or giving a book to Emmett during lp-ghost3:
+	say "You hold [the noun] out to the man, who nods and approaches.  He touches it, but nothing happens, and he shakes his head sadly.";
 
 Instead of showing or giving a library book to Emmett during lp-ghost3:
 	if the noun is lp-ghost-unread:
@@ -407,7 +434,7 @@ Instead of taking off Emmett during lp-ghost6:
 	say "The cold spot seems to be part of you now."
 	
 Instead of kissing Emmett during lp-ghost6:
-	say "Craning your neck, you manage to kiss the cold spot on your collarbone.  It warms briefly before the cold retuns."
+	say "Craning your neck, you manage to kiss the cold spot on your collarbone.  It warms briefly before the cold returns."
 	
 Instead of showing something to Emmett during lp-ghost6:
 	say "Feeling foolish, you turn your shoulder towards [the noun], but get no response."
@@ -420,7 +447,7 @@ Instead of showing or giving a library book to Emmett during lp-ghost6:
 		let X be the reply corresponding to a em_object of the noun in the Table of Emmett Reactions;
 		say "[X][paragraph break]";
 	otherwise:
-		say "You hear a curious muttering from a voice in your head.  'Hmm, a new aquisition.  Good, good.'"
+		say "You hear a curious muttering from a voice in your head.  'Hmm, a new acquisition.  Good, good.'"
 
 Instead of showing or giving a book to Emmett during lp-ghost6:
 	say "'You know, the library could use a book like that,' admonishes a voice in your head."
