@@ -34,6 +34,8 @@ SPO7 is a room in SPO. "SW". SPO7 is northeast of SPO4.
 SPO9 is a room in SPO. "N; S". SPO9 is south of SPO5.
 SPO10 is a room in SPO. "N". SPO10 is south of SPO9.
 
+The description of a library book is usually "It's a library book.  You can read it."
+
 book1 is a library book in SPO1.  Passage of book1 is "Some text1.".
 book2 is a library book in SPO2.  Passage of book2 is "Some text2.".
 book3 is a library book in SPO3.  Passage of book3 is "Some text3.".
@@ -208,7 +210,7 @@ Chapter Ragged Hole and Book
 	
 An lp-ragged-hole is fixed in place container.  "A ragged hole graces the side of the brick fountain."  The description is "A ragged hole gapes ominously in the side of the fountain where the secondary fountain used to be."  Understand "ragged", "hole", "side" as the lp-ragged-hole.  The printed name of the lp-ragged-hole is "ragged hole".
 
-The lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920's garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face: he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)" as the lp-library-book.
+lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920's garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face: he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)", "yellowed" as the lp-library-book.
 
 The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE."   Understand "clipped", "newspaper", "article", "1926" as the lp-article.  The printed name of the lp-article is "clipped newpaper article".  The passage is "May 24th, 1926[line break][line break]LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE[line break][line break]Local librarian and black man Emmett Josey was found dead next to a sledgehammer in the town square last night, a victim of suspected foul play.  The sledgehammer has been identified as belonging to the deceased, but why he would have had it with him, at night, in the town square, has been the subject of much debate.  Responding to speculation that Josey may have been upset by the recent vote to install a second drinking fountain to better serve the needs of our whole community, the bill's sponsor Vincent Cragne (a second cousin to our mayor), speaking at the bill-signing ceremony, said, 'While Mr. Josey was somewhat vocal in his opposition to the bill, like all of us, he knew that bowing to the will of the majority is a cornerstone of a democratic society, and informed me personally that he bore me no ill will.'  Despite the unfortunate circumstances, the bill-signing ceremony proceeded as planned,  the only hitch being that Mr. Cragne was unable to sign the bill himself, due to a recent farming accident that left his right hand shattered.  We wish him all the best for a speedy recovery.  The circumstances of Mr. Josey's death are expected to remain unsolved."
 
@@ -357,8 +359,8 @@ Instead of touching Emmett during lp-ghost2:
 Instead of showing or giving a library book to Emmett during lp-ghost2:
 	if the noun is lp-ghost-unread:
 		now the noun is lp-ghost-read;
+		say "You hold the book out to the spark, which hesitates, then plunges inside the pages.  [if the noun is held]The book freezes, and tumbles from your hands.  Once dropped,[otherwise]You hear crackling as the book cover freezes over until[end if] the spark re-emerges, frost receeds from the cover, and remains only in the library's insignia.";
 		now the noun is in the holder of the player;
-		say "You hold the book out to the spark, which hesitates, then plunges inside the pages.  The book freezes, and tumbles from your hands.  Once dropped, the spark re-emerges, and frost receeds from the cover, remaining only in the library's insignia.";
 	else:
 		say "The spark moves as if vaguely interested, but you provoke no other reaction."
 
@@ -372,7 +374,6 @@ Instead of touching Emmett during lp-ghost3:
 Instead of showing or giving a library book to Emmett during lp-ghost3:
 	if the noun is lp-ghost-unread:
 		now the noun is lp-ghost-read;
-		now the noun is in the holder of the player;
 		say "You hold the book out to the man, who nods and approaches, drifting slowly towards you.  He reaches out a hand and touches the book, which becomes encrusted with frost as the man fades from sight.  Finally, the man reappears and nods to you as the frost sublimates away, leaving only traces in the library insignia.";
 	else:
 		say "He looks at the book and nods, but makes no other move."
@@ -386,7 +387,65 @@ Instead of touching Emmett during lp-ghost4:
 After reading a lp-ghost-unread library book in SPO8 during lp-ghost5:
 	say "The well-dressed man glances your direction, but his attention seems fixed on [if lp-fountain2 is in SPO8]the fountain[otherwise]the ivy[end if]."
 
+Instead of showing or giving an lp-ghost-unread library book to Emmett during lp-ghost5:
+	say "The well-dressed man glances your direction, but his attention seems fixed on [if lp-fountain2 is in SPO8]the fountain[otherwise]the ivy[end if]."
+
+Instead of showing or giving an lp-ghost-read library book to Emmett during lp-ghost5:
+	say "The well-dressed man glances your direction and nods."
+
 After reading a lp-ghost-unread library book during lp-ghost6:
 	now the noun is lp-ghost-read;
-	say "As you finish reading the passage, your own hands grow cold, and the book briefly frosts over before fading again, leaving traces behind only in the library insignia."
+	say "As you finish reading the passage, your own hands grow cold, and the book briefly frosts over before fading again, leaving traces behind only in the library insignia.";
+	if there is an em_object of the noun in the Table of Emmett Reactions:
+		let X be the reply corresponding to a em_object of the noun in the Table of Emmett Reactions;
+		say "[paragraph break][X][paragraph break]";
 
+Instead of pulling or pushing or turning or opening or switching on or switching off or entering or closing or taking or cutting Emmett during lp-ghost6:
+	say "You can't do that to a cold spot on your own shoulder, even if it is the tangible manifestation of an African-American ghost."
+	
+Instead of taking off Emmett during lp-ghost6:
+	say "The cold spot seems to be part of you now."
+	
+Instead of kissing Emmett during lp-ghost6:
+	say "Craning your neck, you manage to kiss the cold spot on your collarbone.  It warms briefly before the cold retuns."
+	
+Instead of showing something to Emmett during lp-ghost6:
+	say "Feeling foolish, you turn your shoulder towards [the noun], but get no response."
+	
+Instead of showing or giving a library book to Emmett during lp-ghost6:
+	if the noun is lp-ghost-unread:
+		now the noun is lp-ghost-read;
+		say "Frost spreads down your arm from your shoulder, and then blossoms on the surface of the book.  It recedes again, but traces remain in the library insignia.";
+	if there is an em_object of the noun in the Table of Emmett Reactions:
+		let X be the reply corresponding to a em_object of the noun in the Table of Emmett Reactions;
+		say "[X][paragraph break]";
+	otherwise:
+		say "You hear a curious muttering from a voice in your head.  'Hmm, a new aquisition.  Good, good.'"
+
+Instead of showing or giving a book to Emmett during lp-ghost6:
+	say "'You know, the library could use a book like that,' admonishes a voice in your head."
+
+Instead of quizzing Emmett about an em_object listed in the Table of Emmett Reactions during lp-ghost6:
+	if the noun is an lp-ghost-unread library book:
+		now the noun is lp-ghost-read;
+		say "Frost ripples across the surface of [the noun], leaving faint traces in the library insignia.";
+	say "[reply entry][paragraph break]".
+
+Instead of showing or giving an em_object listed in the Table of Emmett Reactions to Emmett during lp-ghost6:
+	if the noun is an lp-ghost-unread library book:
+		now the noun is lp-ghost-read;
+		say "Frost ripples across the surface of [the noun], leaving faint traces in the library insignia.";
+	say "[the reply entry][paragraph break]".
+	
+
+
+The can't show what you haven't got rule does nothing when the second noun is Emmett.
+The carrying requirements rule does nothing when the second noun is Emmett.
+
+
+Table of Emmett Reactions
+  em_object	reply
+  yourself	"You hear a soft voice breathe, 'Thank you,' inside your head."
+  book1	"You hear a voice echo in your head.  'Ah, yes, book1.  An amazing treatise on what it truly means to be a water buffalo.  It was continually checked out from 1902-1922.'"
+  lp-library-book	"A sigh echoes in your head.  'Didn't really think I needed an entry in that, but I couldn't really complain.  Jess was so up-beat about the whole thing.  The entry about me is...' Another sigh.  'She... meant well.'"
+  lp-article	"A voice echoes faintly in your head.  'That's how it ended.  I just... I just was done.  It was too much.'  A regretful sigh.  'At least I got his hand.  Bastard.'"
