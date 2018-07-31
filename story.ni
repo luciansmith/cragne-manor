@@ -34,7 +34,7 @@ SPO7 is a room in SPO. "SW". SPO7 is northeast of SPO4.
 SPO9 is a room in SPO. "N; S". SPO9 is south of SPO5.
 SPO10 is a room in SPO. "N". SPO10 is south of SPO9.
 
-The description of a library book is usually "It's a library book.  You can read it."
+The description of a library book is usually "A library book.  In the actual game, this will be provided and described by someone else.  You can read it."
 
 book1 is a library book in SPO1.  Passage of book1 is "Some text1.".
 book2 is a library book in SPO2.  Passage of book2 is "Some text2.".
@@ -158,10 +158,13 @@ The lp-fountain2 is fixed in place.  Understand "fountain", "second", "secondary
 
 An lp-sign is part of the lp-fountain2.  The description is "COLORED".  Understand "colored", "only", "sign", "second", "secondary", "crumbling" as lp-sign.  The printed name of the lp-sign is "sign".
 
-An lp-rusty-button is a device.  It is part of the lp-fountain2.  Understand "rusty", "button", "second", "smaller", "secondary", "rust" as the lp-rusty-button
+An lp-rusty-button is a device.  It is part of the lp-fountain2.  Understand "rusty", "button", "second", "smaller", "secondary", "rust" as the lp-rusty-button.  The printed name is "rusty button". The description is "It's covered with rust, but looks somehow pristine, as if it was literally never used."
 
 Instead of pushing or switching on or switching off the lp-rusty-button:
 	say "The rusty button on the secondary fountain does nothing when you push it."
+	
+Instead of examining the lp-rusty-button:
+	try examining the lp-fountain2
 	
 Instead of pushing or switching on or switching off the lp-fountain2:  try pushing the lp-rusty-button.
 
@@ -219,9 +222,9 @@ Chapter Ragged Hole and Book
 	
 An lp-ragged-hole is fixed in place container.  "A ragged hole graces the side of the brick fountain."  The description is "A ragged hole gapes ominously in the side of the fountain where the secondary fountain used to be."  Understand "ragged", "hole", "side" as the lp-ragged-hole.  The printed name of the lp-ragged-hole is "ragged hole".
 
-lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920's garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face: he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)", "yellowed" as the lp-library-book.
+lp-library-book is a library book in the lp-ragged-hole.  The description is "An old yellowed book entitled '[italic type]Backwater Personalities (1915-1925 edition)[roman type]'.  [Library insignia] is embossed on the spine."  The passage is "You flip through the book, looking at various of write-ups and pictures of men and women in 1920[apostrophe]s garb until, with a start, you recognize the well-dressed ghost, staring at you intently from the page.  You read his entry:[line break][line break]Emmett Josey - Backwater Librarian[line break]Everyone should recognize our 'darkly beloved' town librarian, always ready with a smile and a book suggestion for all who walk in his doors, especially those of our younger generation.  What you may not know is that his family has been here for six generations, which is pretty unusual for someone like him!  Even more amazingly, Mr. Josey is a college graduate--as were his father, and his father's father!  So don't be surprised when you go into our beloved library and see this face: he's an institution just as much as the building is!".  The printed name is "Backwater Personalities (1915-1925 edition)".  Understand "Backwater", "Personalities", "1915", "1925", "edition", "(1915-1925)", "yellowed" as the lp-library-book.
 
-The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE."   Understand "clipped", "newspaper", "article", "1926" as the lp-article.  The printed name of the lp-article is "clipped newspaper article".  The passage is "May 24th, 1926[line break][line break]LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE[line break][line break]Local librarian and black man Emmett Josey was found dead next to a sledgehammer in the town square last night, a victim of suspected foul play.  The sledgehammer has been identified as belonging to the deceased, but why he would have had it with him, at night, in the town square, has been the subject of much debate.  Responding to speculation that Josey may have been upset by the recent vote to install a second drinking fountain to better serve the needs of our whole community, the bill's sponsor Vincent Cragne (a second cousin to our mayor), speaking at the bill-signing ceremony, said, 'While Mr. Josey was somewhat vocal in his opposition to the bill, like all of us, he knew that bowing to the will of the majority is a cornerstone of a democratic society, and informed me personally that he bore me no ill will.'  Despite the unfortunate circumstances, the bill-signing ceremony proceeded as planned,  the only hitch being that Mr. Cragne was unable to sign the bill himself, due to a recent farming accident that left his right hand shattered.  We wish him all the best for a speedy recovery.  The circumstances of Mr. Josey's death are expected to remain unsolved."
+The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE."   Understand "clipped", "newspaper", "article", "1926" as the lp-article.  The printed name of the lp-article is "clipped newspaper article".  The passage is "May 24th, 1926[line break][line break]LIBRARIAN DIES IN ALTERCATION IN TOWN SQUARE[line break][line break]Local librarian and black man Emmett Josey was found dead next to a sledgehammer in the town square last night, a victim of suspected foul play.  The sledgehammer has been identified as belonging to the deceased, but why he would have had it with him, at night, in the town square, has been the subject of much debate.  Responding to speculation that Josey may have been upset by the recent vote to install a second drinking fountain to better serve the needs of our whole community, the bill's sponsor Vincent Cragne (a second cousin to our mayor), speaking at the bill-signing ceremony, said, 'Mr. Josey was somewhat vocal in his opposition to the bill.  But like all of us, he knew that bowing to the will of the majority is a cornerstone of a democratic society, and informed me personally that he bore me no ill will.'  Despite the unfortunate circumstances, the bill-signing ceremony proceeded as planned,  the only hitch being that Mr. Cragne was unable to sign the bill himself, due to a recent farming accident that left his right hand shattered.  We wish him all the best for a speedy recovery.  The circumstances of Mr. Josey's death are expected to remain unsolved."
 
 After reading the lp-library-book for the first time:
 	say "There's a clipped newspaper article tucked inside the book at that page, which you remove.";
@@ -365,9 +368,6 @@ After reading a lp-ghost-unread library book during lp-ghost2:
 Instead of touching or rubbing Emmett during lp-ghost2:
 	say "As your hand approaches the spark, you feel the warmth draining from your fingertips.  You jerk your hand back just as frost begins to form on your palm."	
 
-Instead of saying hello to Emmett during lp-ghost2:
-	say "The spark flits about, and you're not sure if it's responding to you or not."
-
 Instead of asking Emmett to try hailing during lp-ghost2:
 	say "The spark flits about, and you're not sure if it's responding to you or not."
 
@@ -388,9 +388,6 @@ After reading a lp-ghost-unread library book during lp-ghost3:
 
 Instead of touching or rubbing Emmett during lp-ghost3:
 	say "A reproachful look from the man stops you."	
-
-Instead of saying hello to Emmett during lp-ghost3:
-	say "The man watches you, but shrugs."
 
 Instead of asking Emmett to try hailing during lp-ghost3:
 	say "The man watches you, but shrugs."
@@ -426,6 +423,7 @@ After reading a lp-ghost-unread library book during lp-ghost6:
 	if there is an em_object of the noun in the Table of Emmett Reactions:
 		let X be the reply corresponding to a em_object of the noun in the Table of Emmett Reactions;
 		say "[paragraph break][X][paragraph break]";
+	continue the action;
 
 Instead of pulling or pushing or turning or opening or switching on or switching off or entering or closing or taking or cutting Emmett during lp-ghost6:
 	say "You can't do that to a cold spot on your own shoulder, even if it is the tangible manifestation of an African-American ghost."
