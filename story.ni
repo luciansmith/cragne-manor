@@ -64,12 +64,18 @@ A library book can be lp-ghost-read or lp-ghost-unread.  A library book is usual
 
 After examining a lp-ghost-read library book, say "Frost lines the edges of the library insignia."
 
+Understand "frost" as the library insignia when an lp-ghost-read library book is carried by the player.
+
+Instead of examining the player when the location is SPO8:
+	say “You're feeling tired, and your hair is a mess.”
+	
 After examining the library insignia:
 	let x be a random lp-ghost-read library book carried by the player;
 	if x is not nothing, say "Frost lines the edges of the library insignia of [the x]."
 
-Instead of examining the player when the location is SPO8:
-	say “You're feeling tired, and your hair is a mess.”
+Instead of touching or rubbing the library insignia when an lp-ghost-read library book is carried by the player:
+	let x be a random lp-ghost-read library book carried by the player;
+	if x is not nothing, say "The library insignia on [the x] is cold, and doesn't warm to your touch."
 
 Instead of examining the player when the location is SPO8 during lp-ghost6:
 	say “You're still feeling tired, but confident as well.”
@@ -80,10 +86,10 @@ Instead of closing a book in SPO8:
 Instead of searching a book in SPO8:
 	try reading the noun
 	
-Instead of cutting a library book in SPO8:
+Instead of cutting or attacking or burning a library book in SPO8:
 	say "The horrors of this world have not yet driven you to such madness as to seriously consider defacing a library book."
 
-The commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!"
+The commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  More detail later..."
 
 Chapter Room - The Drinking Fountain room itself
 
@@ -91,10 +97,13 @@ Printed name of SPO8 is "Drinking Fountain (Lucian Smith)".
 
 Description of SPO8 is "A public drinking fountain is placed in a nook here, nearly overgrown with ivy.  You can return to the town square to the northeast."
 
+Instead of going nowhere in SPO8:
+	say "Ivy-covered walls surround the fountain everywhere but to the northeast."
+
 
 Section fountain - the fountain/button
 
-An lp-fountain is fixed in place undescribed in SPO8.  Understand "fountain", "drinking fountain", "spout", "bowl", "brick", "water" as lp-fountain.  The description of lp-fountain is "An ornate brick drinking fountain, with a spout above a silver bowl, a button underneath, and surrounded by ivy."   The printed name of lp-fountain is "fountain".
+An lp-fountain is fixed in place undescribed in SPO8.  Understand "fountain", "drinking fountain", "spout", "bowl", "brick", "water", "pillar", "main" as lp-fountain.  The description of lp-fountain is "An ornate brick drinking fountain, with a spout above a silver bowl, a button underneath, and surrounded by ivy."   The printed name of lp-fountain is "fountain".
 
 The lp-button is a device.  It is part of the lp-fountain.  Understand "button", "round" as lp-button.  The printed name of lp-button is "round button".  The description of lp-button is "A round button set in the brick underneath the bowl of the drinking fountain."
 
@@ -120,9 +129,9 @@ Understand "drink from [something]" as drinking while the location is SPO8.
 
 Section ivy - the ivy concealing the second fountain
 
-The lp-ivy is fixed in place undescribed in SPO8.  Understand "overgrown", "overgrowth", "ivy", "thick", "leaves" as lp-ivy.  The description of lp-ivy is "Thick ivy grows around the fountain, obscuring all but the bowl and spout."  The printed name of lp-ivy is "ivy".  The plural of ivy is ivy.
+The lp-ivy is fixed in place undescribed in SPO8.  Understand "overgrown", "overgrowth", "ivy", "thick", "leaves", "walls" as lp-ivy.  The description of lp-ivy is "Thick ivy grows around the fountain, obscuring all but the bowl and spout."  The printed name of lp-ivy is "ivy".  The plural of ivy is ivy.
 
-Instead of pulling or pushing or turning or searching or looking under or opening the lp-ivy:
+Instead of pulling or pushing or turning or searching or looking under or opening or taking off or taking the lp-ivy:
 	Remove the lp-ivy from play;
 	move lp-searched-ivy to SPO8;
 	move lp-fountain2 to SPO8;
@@ -130,10 +139,12 @@ Instead of pulling or pushing or turning or searching or looking under or openin
 	if lp-ghost5 is happening:
 		The lp-sledgehammer-quest happens in 2 turns from now
 
+The can't take off what's not worn rule does nothing when the noun is lp-ivy.
+The can't take off what's not worn rule does nothing when the noun is lp-searched-ivy.
 	
 The lp-searched-ivy is fixed in place undescribed.  Understand "ivy", "thick", "pulled", "pulled back" as lp-searched-ivy.  The description of lp-searched-ivy is "Thick ivy that has been pulled back to reveal the side of the fountain, where a secondary fountain has been installed."  The printed name of the lp-searched-ivy is "ivy".
 
-Instead of pulling or pushing or turning or searching or looking under or opening the lp-searched-ivy, say "You rummage through the leaves, but find nothing else."
+Instead of pulling or pushing or turning or searching or looking under or opening or taking off or taking the lp-searched-ivy, say "You rummage through the leaves, but find nothing else."
 
 Instead of searching or looking under the lp-fountain:
 	if the lp-ivy is in SPO8:
@@ -151,6 +162,15 @@ Instead of attacking the lp-searched-ivy during lp-ghost6:
 
 Instead of attacking the lp-ragged-hole during lp-ghost6:
 	say "Violence isn't the answer to this one.  Any more, at least."
+
+Instead of climbing the lp-ivy:
+	say "The ivy is too thin to help you climb, and there's nothing up there anyway."
+	
+Instead of climbing the lp-searched-ivy:
+	say "The ivy is too thin to help you climb, and there's nothing up there anyway."
+	
+Instead of going up in SPO8:
+	say "The ivy is too thin to help you climb, and there's nothing up there anyway."
 	
 Section second fountain
 
@@ -192,6 +212,12 @@ Instead of attacking the lp-fountain2 when the lp-ghostly-sledgehammer is carrie
 	try lp-attacking-with the lp-fountain2 with the lp-ghostly-sledgehammer.
 
 lp-attacking-with it with is an action applying to two things.
+
+Instead of attacking the lp-fountain:
+	say "Nothing you're carrying seems an appropriate tool to attack the secondary fountain with."
+
+Instead of lp-attacking-with the lp-fountain with something:
+	say "[The second noun] seems an inappropriate tool for the job."
 
 Instead of attacking the lp-fountain during lp-ghost5:
 	try lp-attacking-with the lp-fountain with the lp-ghostly-sledgehammer.
@@ -244,7 +270,8 @@ lp-ghost2 is a scene.  lp-ghost2 begins when lp-ghost1 ends.  lp-ghost2 ends whe
 lp-ghost3 is a scene.  lp-ghost3 begins when lp-ghost2 ends.  lp-ghost3 ends when the number of lp-ghost-read library books is at least 9.
 lp-ghost4 is a scene.  lp-ghost4 begins when lp-ghost3 ends.  lp-ghost4 ends when the location of Emmett is SPO8 and the location is SPO8.
 lp-ghost5 is a scene.  lp-ghost5 begins when lp-ghost4 ends.  lp-ghost5 ends when the location of the lp-ragged-hole is SPO8.
-lp-ghost6 is a scene.  lp-ghost6 begins when lp-ghost5 ends.
+lp-ghost6 is a scene.  lp-ghost6 begins when lp-ghost5 ends.  lp-ghost6 ends when the number of lp-ghost-unread books is zero.
+
 
 
 Emmett is a man.  "A faint chill is in the air."  Emmett is privately-named.  The description of Emmett is "A chill emanates from behind you, fading as you turn."   The printed name of Emmett is "faint chill".   Emmett is improper-named.
@@ -255,7 +282,7 @@ Understand "spark", "chalk", "snap", "ice cracking", "hovering", "chill" as Emme
 Understand "ghost", "chill", "spark", "chalk", "snap", "hovering", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost3 is happening.
 Understand "ghost", "chill", "spark", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost4 is happening.
 Understand "ghost", "well-dressed", "African-American", "black", "outline", "man", "suit", "tie" as Emmett while lp-ghost5 is happening.
-Understand "Emmett", "cold", "spot", "collarbone", "collar", "shoulder", "your collarbone", "my collarbone", "ghost", "well-dressed", "African-American", "black", "man" as Emmett while lp-ghost6 is happening.
+Understand "Emmett", "Josey", "Emmet", "Emett", "cold", "spot", "collarbone", "collar", "shoulder", "your collarbone", "my collarbone", "ghost", "well-dressed", "African-American", "black", "man" as Emmett while lp-ghost6 is happening.
 
 
 When lp-ghost1 begins:
@@ -266,28 +293,28 @@ When lp-ghost2 begins:
 	now the description of Emmett is "Something like a spark of chalk hovers in the air behind you.  As you watch, it fades, only to reappear to your right in a wash of cold.";
 	now the printed name of Emmett is "hovering spark";
 	now the initial appearance of Emmett is "A chalky spark hovers in the air, emanating cold.";
-	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  At this point, you may have noticed something following you around.  That's actually my code, triggered on the player's actions still completely disconnected to this actual room."
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  At this point, you may have noticed something following you around.  That's actually my code, triggered on the player's actions still completely disconnected to this actual room.  (More detail later...)"
 
 When lp-ghost3 begins:
 	say "With another snap, the air seems to shift, and the faint outline of a man coalesces around the spark.";
 	now the description of Emmett is "The outline of an African-American man in a suit and tie fades in and out of view around a hovering spark.";
 	now the printed name of Emmett is "well-dressed ghost";
 	now the initial appearance of Emmett is "The outline of a well-dressed man moves slowly around you.";
-	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that."
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  (More detail later...)"
 
 When lp-ghost4 begins:
 	say "The well-dressed man's outline coalesces into form like ice spreading across a pond.  Pleased, he watches his hands move, and brushes a bit of frost off of a shoulder.  Then he starts and looks away, as if remembering something.  His features darken and the air goes cold as he frowns.";
 	now the description of Emmett is "A well-dressed and glowering African-American man, [if the location is SPO8]impatient[otherwise]moving[end if] with a sense of purpose.";
 	now the printed name of Emmett is "well-dressed ghost";
 	now the initial appearance of Emmett is "Frost springs up along the path of the well-dressed man, then slowly fades behind him.";
-	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos."
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos.  (More detail later...)"
 	
 When lp-ghost5 begins:
 	if lp-fountain2 is in SPO8:
 		The lp-sledgehammer-quest happens in two turns from now;
 	now the printed name of Emmett is "well-dressed ghost";
 	now the initial appearance of Emmett is "The well-dressed man scowls, glaring at [if the lp-fountain2 is in SPO8]the fountain[otherwise]the ivy[end if].";
-	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos.  Then the 'public drinking fountain' prompt made me think of the 'whites only' and 'colored' drinking fountains, and 'racism' seemed a fitting theme for an 'uncovering old horrors' type of game."
+	now the commentary of SPO8 is "My prompt for this room was 'public drinking fountain' and I knew I wanted to have stuff going on during the rest of the game, like I did in IF Whispers 3.  So that's where this started!  I had a vague idea of 'a ghost that follows you around', and talking with the organizers, they liked that idea, so I went with that.  They put me on the 'library book' puzzle track, so connecting my ghost with library books seemed apropos.  Then the 'public drinking fountain' prompt made me think of the 'whites only' and 'colored' drinking fountains, and 'racism' seemed a fitting theme for an 'uncovering old horrors' type of game.  (More detail later...)"
 		
 When lp-ghost6 begins:
 	say "The well-dressed man comes up and puts a cold hand on your shoulder.  His mouth doesn't move, but you hear a faint, accented voice, speaking inside your head.  'Thank you.  That was... satisfying.  It's not enough.  But it was still satisfying.'  The man's shoulders straighten as if a weight was lifted off of them, and you hear a sigh.  'I... might be able to help.  I'll try, at least.'  The man begins fading from view, as the spot on your shoulder where he's touching you gets colder and colder.  You gasp with pain and clutch the spot just as the man fades entirely.  Slowly, your shoulder begins to warm up again, but a spot on your collarbone remains cold to the touch.";
@@ -299,19 +326,32 @@ When lp-ghost6 begins:
 
 At the time when the lp-sledgehammer-quest happens:
 	move the lp-ghostly-sledgehammer to the player;
-	say "Seeing the smaller fountain, the well-dressed man scowls, and a sledgehammer suddenly materializes in his hands.  He stalks towards it, frost blossoming from the ground at each step.  Standing in front of it, he hefts the sledgehammer high into the air, bringing it down with great force--only to see it harmlessly pass through the fountain's bowl, without even a whisper of wind.   He glares at the fountain, then turn and sees you watching him.  He considers for a moment, then seems to come to a decision.  He tosses the sledgehammer to you, and you catch it one-handed."
+	say "Seeing the smaller fountain, the well-dressed man scowls, and a sledgehammer suddenly materializes in his hands.  He stalks towards it, frost blossoming from the ground at each step.  Standing in front of it, he hefts the sledgehammer high into the air, bringing it down with great force--only to see it harmlessly pass through the fountain's bowl, without even a whisper of wind.   He glares at the fountain, then turns and sees you watching him.  He considers for a moment, then seems to come to a decision.  He tosses the sledgehammer to you, and you catch it one-handed."
+
+When lp-ghost6 ends:
+	now Emmett is nowhere;
+	say "A sigh echoes in your head. 'That's all of them,' a voice breathes.  'And that's about all I can do.  I wish you luck.  Find your husband, even though he's another Cragne.  And beware the Vaadigniphod.'  With that, the voice fades away.  After a second or two, you realize that your shoulder has warmed up again.  You rub the spot absently, almost missing the cold."
 
 Every turn during lp-ghost1:
-	if the holder of Emmett is not the holder of the player:
-		move Emmett to the holder of the player;
+	if the holder of Emmett is not the holder of the yourself:
+		if the holder of the yourself is nothing:
+			now Emmett is nowhere;
+		otherwise:
+			move Emmett to the holder of the yourself;
 
 Every turn during lp-ghost2:
-	if the holder of Emmett is not the holder of the player:
-		move Emmett to the holder of the player;
+	if the holder of Emmett is not the holder of the yourself:
+		if the holder of the yourself is nothing:
+			now Emmett is nowhere;
+		otherwise:
+			move Emmett to the holder of the yourself;
 
 Every turn during lp-ghost3:
-	if the holder of Emmett is not the holder of the player:
-		move Emmett to the holder of the player;
+	if the holder of Emmett is not the holder of the yourself:
+		if the holder of the yourself is nothing:
+			now Emmett is nowhere;
+		otherwise:
+			move Emmett to the holder of the yourself;
 
 Every turn during lp-ghost4:
 	if the location of Emmett is not SPO8:
@@ -417,6 +457,18 @@ Instead of showing or giving an lp-ghost-unread library book to Emmett during lp
 Instead of showing or giving an lp-ghost-read library book to Emmett during lp-ghost5:
 	say "The well-dressed man glances your direction and nods."
 
+Instead of showing or giving the lp-ghostly-sledgehammer to Emmett during lp-ghost5:
+	say "The well-dressed man sighs, and shakes his head."
+	
+Instead of attacking Emmett during lp-ghost5:
+	say "The man rolls his eyes and folds his arms as your swing passes harmlessly through him."
+	
+Instead of lp-attacking-with Emmett with something during lp-ghost5:
+	say "The man rolls his eyes and folds his arms as your swing passes harmlessly through him."
+
+Instead of lp-attacking-with Emmett with the lp-ghostly-sledgehammer during lp-ghost5:
+	say "The man looks at you and raises an eyebrow, and you stop, ashamed."
+
 After reading a lp-ghost-unread library book during lp-ghost6:
 	now the noun is lp-ghost-read;
 	say "As you finish reading the passage, your own hands grow cold, and the book briefly frosts over before fading again, leaving traces behind only in the library insignia.";
@@ -463,7 +515,6 @@ Instead of showing or giving an em_object listed in the Table of Emmett Reaction
 	say "[the reply entry][paragraph break]".
 	
 
-
 The can't show what you haven't got rule does nothing when the second noun is Emmett.
 The carrying requirements rule does nothing when the second noun is Emmett.
 
@@ -474,3 +525,5 @@ Table of Emmett Reactions
   book1	"You hear a voice echo in your head.  'Ah, yes, book1.  An amazing treatise on what it truly means to be a water buffalo.  It was continually checked out from 1902-1922.'"
   lp-library-book	"A sigh echoes in your head.  'Didn't really think I needed an entry in that, but I couldn't really complain.  Jess was so up-beat about the whole thing.  The entry about me is...' Another sigh.  'She... meant well.'"
   lp-article	"A voice echoes faintly in your head.  'That's how it ended.  I just... I just was done.  It was too much.'  A regretful sigh.  'At least I got his hand.  Bastard.'"
+  lp-fountain	"'Back in its original state.  Well, mostly.  Nothing's ever exactly as it was, I suppose.'"
+  lp-fountain2	"'They knew it was wrong, but they just let the ivy cover it up.'  A disgusted noise.  'Better that it's gone.  Thank you.'"
