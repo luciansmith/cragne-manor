@@ -45,6 +45,10 @@ book6 is a library book in SPO6.  Passage of book6 is "Some text6.".
 book7 is a library book in SPO7.  Passage of book7 is "Some text7.".
 book8 is a library book in SPO9.  Passage of book8 is "Some text8.".
 book9 is a library book in SPO10.  Passage of book9 is "Some text9.".
+book10 is a library book
+
+an apple is in SPO7.  The description is "A thing, to test the existence of things I don't know about in the game."
+Mr Pennyworth is a man in SPO9.  The description is "A guy, to test the existence of another 'man' object in the game."
 
 library insignia is a thing.  The description is "Two moons, an eye, and a book."
 
@@ -385,6 +389,9 @@ After going during lp-ghost6:
 		if the holder of x is not a room:
 			say "You catch a glimpse of frost spreading across [the holder of x] before dissipating again."
 
+Instead of answering Emmett that:
+	try telling Emmett about it;
+
 After reading a lp-ghost-unread library book during lp-ghost1:
 	now the noun is lp-ghost-read;
 	say "The chill behind you intensifies, and you feel like you're being watched."
@@ -432,16 +439,25 @@ Instead of touching or rubbing Emmett during lp-ghost3:
 Instead of asking Emmett to try hailing during lp-ghost3:
 	say "The man watches you, but shrugs."
 
-Instead of showing or giving a book to Emmett during lp-ghost3:
-	say "You hold [the noun] out to the man, who nods and approaches.  He touches it, but nothing happens, and he shakes his head sadly.";
-
 Instead of showing or giving a library book to Emmett during lp-ghost3:
 	if the noun is lp-ghost-unread:
 		now the noun is lp-ghost-read;
 		say "You hold the book out to the man, who nods and approaches, drifting slowly towards you.  He reaches out a hand and touches the book, which becomes encrusted with frost as the man fades from sight.  Finally, the man reappears and nods to you as the frost sublimates away, leaving only traces in the library insignia.";
 	else:
-		say "He looks at the book and nods, but makes no other move."
+		say "He looks at the book and gives you a nod and a smile."
 
+Instead of showing or giving a book to Emmett during lp-ghost3:
+	say "You hold [the noun] out to the man, who nods and approaches.  He touches it, but nothing happens, and he shakes his head sadly.";
+
+Instead of showing or giving something to Emmett during lp-ghost3:
+	say "The well-dressed man looks at [the noun], but seems unable to focus on it.  He shakes his head in frustration."
+
+Instead of quizzing or informing Emmett about a held thing during lp-ghost3:
+	try showing the second noun to Emmett;
+	
+Instead of quizzing or informing or asking or telling Emmett about during lp-ghost3:
+	say "The well-dressed man watches you speak, but shakes his head as if he can't hear you."
+	
 Instead of showing or giving something to Emmett during lp-ghost4:
 	say "The well-dressed man is going somewhere, and is not interested in anything else right now."
 
@@ -486,7 +502,7 @@ Instead of taking off Emmett during lp-ghost6:
 Instead of kissing Emmett during lp-ghost6:
 	say "Craning your neck, you manage to kiss the cold spot on your collarbone.  It warms briefly before the cold returns."
 	
-Instead of showing something to Emmett during lp-ghost6:
+Instead of showing or giving something to Emmett during lp-ghost6:
 	say "Feeling foolish, you turn your shoulder towards [the noun], but get no response."
 	
 Instead of showing or giving a library book to Emmett during lp-ghost6:
@@ -502,10 +518,11 @@ Instead of showing or giving a library book to Emmett during lp-ghost6:
 Instead of showing or giving a book to Emmett during lp-ghost6:
 	say "'You know, the library could use a book like that,' admonishes a voice in your head."
 
-Instead of quizzing Emmett about an em_object listed in the Table of Emmett Reactions during lp-ghost6:
+Instead of quizzing or informing Emmett about an em_object listed in the Table of Emmett Reactions during lp-ghost6:
 	if the noun is an lp-ghost-unread library book:
 		now the noun is lp-ghost-read;
-		say "Frost ripples across the surface of [the noun], leaving faint traces in the library insignia.";
+		if the location of the second noun is the location of the player:
+			say "Frost ripples across the surface of [the noun], leaving faint traces in the library insignia.";
 	say "[reply entry][paragraph break]".
 
 Instead of showing or giving an em_object listed in the Table of Emmett Reactions to Emmett during lp-ghost6:
@@ -514,9 +531,17 @@ Instead of showing or giving an em_object listed in the Table of Emmett Reaction
 		say "Frost ripples across the surface of [the noun], leaving faint traces in the library insignia.";
 	say "[the reply entry][paragraph break]".
 	
+Instead of quizzing or informing Emmett about a held thing during lp-ghost6:
+	try showing the second noun to Emmett;
+	
+Instead of quizzing or informing or asking or telling Emmett about during lp-ghost6:
+	say "'I can't tell you anything about that,' the voice in your head replies.  'It's been too long.  The books I can remember, mostly.  But not much else.'"
 
-The can't show what you haven't got rule does nothing when the second noun is Emmett.
-The carrying requirements rule does nothing when the second noun is Emmett.
+Instead of touching or rubbing Emmett during lp-ghost6:
+	say "You massage your shoulder, warming it slightly.  It cools again when you stop."
+
+The can't show what you haven't got rule does nothing when the second noun is Emmett and lp-ghost6 is happening.
+The carrying requirements rule does nothing when the second noun is Emmett and lp-ghost6 is happening.
 
 
 Table of Emmett Reactions
@@ -527,3 +552,4 @@ Table of Emmett Reactions
   lp-article	"A voice echoes faintly in your head.  'That's how it ended.  I just... I just was done.  It was too much.'  A regretful sigh.  'At least I got his hand.  Bastard.'"
   lp-fountain	"'Back in its original state.  Well, mostly.  Nothing's ever exactly as it was, I suppose.'"
   lp-fountain2	"'They knew it was wrong, but they just let the ivy cover it up.'  A disgusted noise.  'Better that it's gone.  Thank you.'"
+  library insignia	"'That's been the insignia of the library since well before my time.  It bothered me at first, but eventually, I came to see it as... protective.  As if, through knowledge, one could rise above the madness and conquer it.'"
