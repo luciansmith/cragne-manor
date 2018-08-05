@@ -258,7 +258,6 @@ The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN 
 
 After reading the lp-library-book for the first time:
 	say "There's a clipped newspaper article tucked inside the book at that page, which you remove.";
-	now the lp-library-book is lp-ghost-read;
 	move the lp-article to the player;
 	continue the action.
 	
@@ -401,7 +400,7 @@ After reading a lp-ghost-unread library book during lp-ghost1:
 Instead of listening to Emmett:
 	say "[Emmett] makes no sound at all."
 
-Instead of touching or rubbing Emmett during lp-ghost1:
+Instead of kissing or touching or rubbing Emmett during lp-ghost1:
 	say "You move your hand into the chill, and feel a faint shudder before it fades again."	
 
 Instead of saying hello to Emmett during lp-ghost1:
@@ -414,7 +413,7 @@ After reading a lp-ghost-unread library book during lp-ghost2:
 	now the noun is lp-ghost-read;
 	say "As you finish reading the passage, the spark moves through the book with an eerie hum, leaving frost behind on the library insignia."
 
-Instead of touching or rubbing Emmett during lp-ghost2:
+Instead of kissing or touching or rubbing Emmett during lp-ghost2:
 	say "As your hand approaches the spark, you feel the warmth draining from your fingertips.  You jerk your hand back just as frost begins to form on your palm."	
 
 Instead of asking Emmett to try hailing during lp-ghost2:
@@ -435,7 +434,7 @@ After reading a lp-ghost-unread library book during lp-ghost3:
 	now the noun is lp-ghost-read;
 	say "As you finish reading the passage, you realize that the well-dressed man has been reading over your shoulder.  He nods thoughtfully, placing his hand on the cover, leaving frost behind on the library insignia."
 
-Instead of touching or rubbing Emmett during lp-ghost3:
+Instead of kissing or touching or rubbing Emmett during lp-ghost3:
 	say "A reproachful look from the man stops you."	
 
 Instead of asking Emmett to try hailing during lp-ghost3:
@@ -460,6 +459,9 @@ Instead of quizzing or informing Emmett about a held thing during lp-ghost3:
 Instead of quizzing or informing or asking or telling Emmett about during lp-ghost3:
 	say "The well-dressed man watches you speak, but shakes his head as if he can't hear you."
 	
+Instead of lp-attacking-with Emmett with during lp-ghost3:
+	say "A reproachful look from the man stops you."	
+	
 Instead of showing or giving something to Emmett during lp-ghost4:
 	say "The well-dressed man is going somewhere, and is not interested in anything else right now."
 
@@ -481,8 +483,14 @@ Instead of showing or giving the lp-ghostly-sledgehammer to Emmett during lp-gho
 Instead of attacking Emmett during lp-ghost5:
 	say "The man rolls his eyes and folds his arms as your swing passes harmlessly through him."
 	
+Instead of kissing or rubbing or touching Emmett during lp-ghost5:
+	say "You approach the man, but his glare stops you."
+	
 Instead of lp-attacking-with Emmett with something during lp-ghost5:
 	say "The man rolls his eyes and folds his arms as your swing passes harmlessly through him."
+
+Instead of throwing something at Emmett:
+	try lp-attacking-with Emmett with the noun;
 
 Instead of lp-attacking-with Emmett with the lp-ghostly-sledgehammer during lp-ghost5:
 	say "The man looks at you and raises an eyebrow, and you stop, ashamed."
@@ -554,6 +562,10 @@ Instead of asking or telling Emmett about during lp-ghost6:
 
 Instead of touching or rubbing Emmett during lp-ghost6:
 	say "You massage your shoulder, warming it slightly.  It cools again when you stop."
+
+Instead of lp-attacking-with Emmett with something during lp-ghost6:
+	say "You'd rather not do that to your own shoulder."
+
 
 The can't show what you haven't got rule does nothing when the second noun is Emmett and lp-ghost6 is happening.
 The carrying requirements rule does nothing when the second noun is Emmett and lp-ghost6 is happening.
