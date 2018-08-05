@@ -45,7 +45,7 @@ book6 is a library book in SPO6.  Passage of book6 is "Some text6.".
 book7 is a library book in SPO7.  Passage of book7 is "Some text7.".
 book8 is a library book in SPO9.  Passage of book8 is "Some text8.".
 book9 is a library book in SPO10.  Passage of book9 is "Some text9.".
-book10 is a library book
+book10 is a library book in SPO4.
 
 an apple is in SPO7.  The description is "A thing, to test the existence of things I don't know about in the game."
 Mr Pennyworth is a man in SPO9.  The description is "A guy, to test the existence of another 'man' object in the game."
@@ -258,6 +258,7 @@ The lp-article is a book.  The description is "LIBRARIAN DIES IN ALTERCATION IN 
 
 After reading the lp-library-book for the first time:
 	say "There's a clipped newspaper article tucked inside the book at that page, which you remove.";
+	now the lp-library-book is lp-ghost-read;
 	move the lp-article to the player;
 	continue the action.
 	
@@ -274,7 +275,7 @@ lp-ghost2 is a scene.  lp-ghost2 begins when lp-ghost1 ends.  lp-ghost2 ends whe
 lp-ghost3 is a scene.  lp-ghost3 begins when lp-ghost2 ends.  lp-ghost3 ends when the number of lp-ghost-read library books is at least 9.
 lp-ghost4 is a scene.  lp-ghost4 begins when lp-ghost3 ends.  lp-ghost4 ends when the location of Emmett is SPO8 and the location is SPO8.
 lp-ghost5 is a scene.  lp-ghost5 begins when lp-ghost4 ends.  lp-ghost5 ends when the location of the lp-ragged-hole is SPO8.
-lp-ghost6 is a scene.  lp-ghost6 begins when lp-ghost5 ends.  lp-ghost6 ends when the number of lp-ghost-unread books is zero.
+lp-ghost6 is a scene.  lp-ghost6 begins when lp-ghost5 ends.  lp-ghost6 ends when the number of lp-ghost-unread library books is zero.
 
 
 
@@ -387,7 +388,8 @@ After going during lp-ghost6:
 	if x is not nothing:
 		say "You feel a sharp pain from the cold spot on your shoulder, and feel like there's a library book you--or Emmett, perhaps--hasn't read yet.";
 		if the holder of x is not a room:
-			say "You catch a glimpse of frost spreading across [the holder of x] before dissipating again."
+			say "You catch a glimpse of frost spreading across [the holder of x] before dissipating again.";
+	continue the action;
 
 Instead of answering Emmett that:
 	try telling Emmett about it;
@@ -515,8 +517,21 @@ Instead of showing or giving a library book to Emmett during lp-ghost6:
 	otherwise:
 		say "You hear a curious muttering from a voice in your head.  'Hmm, a new acquisition.  Good, good.'"
 
-Instead of showing or giving a book to Emmett during lp-ghost6:
-	say "'You know, the library could use a book like that,' admonishes a voice in your head."
+Instead of quizzing or informing Emmett about during lp-ghost6:
+	if the second noun is a book:
+		if the second noun is a library book:
+			if the second noun is lp-ghost-read:
+				say "Yes, [the second noun].  A fine aquisition.";
+			otherwise:
+				now the second noun is lp-ghost-read;
+				say "Frost ripples across the surface of [the noun], leaving faint traces in the library insignia.  'Ah, excellent,' says the voice in your head.  'I was hoping we would find that one.'";
+		otherwise:
+			say "'You know, the library could use a book like that,' admonishes a voice in your head.";
+	otherwise:
+		say "'I can't tell you anything about that,' the voice in your head replies.  'It's been too long.  The books I can remember, mostly.  But not much else.'";
+
+Instead of showing or giving something to Emmett during lp-ghost6:
+	try quizzing Emmett about the noun;
 
 Instead of quizzing or informing Emmett about an em_object listed in the Table of Emmett Reactions during lp-ghost6:
 	if the noun is an lp-ghost-unread library book:
@@ -534,7 +549,7 @@ Instead of showing or giving an em_object listed in the Table of Emmett Reaction
 Instead of quizzing or informing Emmett about a held thing during lp-ghost6:
 	try showing the second noun to Emmett;
 	
-Instead of quizzing or informing or asking or telling Emmett about during lp-ghost6:
+Instead of asking or telling Emmett about during lp-ghost6:
 	say "'I can't tell you anything about that,' the voice in your head replies.  'It's been too long.  The books I can remember, mostly.  But not much else.'"
 
 Instead of touching or rubbing Emmett during lp-ghost6:
