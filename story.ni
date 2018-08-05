@@ -386,7 +386,7 @@ Every turn during lp-ghost5:
 After going during lp-ghost6:
 	let x be a random lp-ghost-unread library book enclosed by the location of the player;
 	if x is not nothing:
-		say "You feel a sharp pain from the cold spot on your shoulder, and feel like there's a library book you--or Emmett, perhaps--hasn't read yet.";
+		say "You feel a sharp pain from the cold spot on your shoulder, and feel like there's a library book you--or Emmett, perhaps--hasn't read yet in this location.";
 		if the holder of x is not a room:
 			say "You catch a glimpse of frost spreading across [the holder of x] before dissipating again.";
 	continue the action;
